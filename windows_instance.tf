@@ -1,3 +1,8 @@
+resource "aws_eip" "windows_instance" {
+  instance = "${aws_instance.windows_instance.id}"
+  vpc      = true
+}
+
 resource "aws_instance" "windows_instance" {
   ami = "${data.aws_ami.amazon_windows_2012_r2_base.id}"
   instance_type = "m4.large"
